@@ -1,0 +1,101 @@
+///////////////////////////////////////////////////////////////
+// Name: Jacob Cantu
+// Date: 9/10/2026 1:24 AM
+// Course: CSCI 1470.04
+// Semester: Fall 2026
+// Instructor: Dr. Jonatan Reyes
+// Program Description: This program asks for store items, assigns a price to each item, and then adds them up together in a reciept.
+/////////////////////////////////////////////////////////////// 
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <algorithm>
+#include <cctype>
+using namespace std;
+int main()
+{
+    // defining variables
+    string name;
+    string item1;
+    double price1 = 0;
+    string item2;
+    double price2 = 0;
+    string item3;
+    double price3 = 0;
+    string item4;
+    double price4 = 0;
+    string item5;
+    double price5 = 0;
+    double Subtotal;
+    double Tax;
+    double Total;
+    // get employee name
+    cout << "Enter employee's name: ";
+    getline(cin, name);
+    cout<<endl;
+    
+    // get Items and prices 1-5
+    cout<< "Enter Item #1: ";
+    getline(cin, item1);
+    cout<<"Enter price: ";
+    cin >> price1;
+    cout<<endl;
+    cin.ignore();
+    cout<< "Enter Item #2: ";
+    getline(cin, item2);
+    cout<<"Enter price: ";
+    cin >> price2;
+    cout<<endl;
+    cin.ignore();
+    cout<< "Enter Item #3: ";
+    getline(cin, item3);
+    cout<<"Enter price: ";
+    cin >> price3;
+    cout<<endl;
+    cin.ignore();
+    cout<< "Enter Item #4: ";
+    getline(cin, item4);
+    cout<<"Enter price: ";
+    cin >> price4;
+    cout<<endl;
+    cin.ignore();
+    cout<< "Enter Item #5: ";
+    getline(cin, item5);
+    cout<<"Enter price: ";
+    cin >> price5;
+    cin.ignore();
+    cout << endl;
+    // calculate subtotal, tax, and total
+    Subtotal = (price1+price2+price3+price4+price5);
+    Tax = (Subtotal*0.15);
+    Total = (Subtotal+Tax);
+    // make all of the letters "to upper" (to uppercase letters)
+    transform(name.begin(), name.end(), name.begin(), :: toupper);
+    transform(item1.begin(), item1.end(), item1.begin(), :: toupper);
+    transform(item2.begin(), item2.end(), item2.begin(), :: toupper);
+    transform(item3.begin(), item3.end(), item3.begin(), :: toupper);
+    transform(item4.begin(), item4.end(), item4.begin(), :: toupper);
+    transform(item5.begin(), item5.end(), item5.begin(), :: toupper);
+    // make all numbers have two decimal points when printed
+    cout << fixed << setprecision(2);
+    // top of reciept
+    cout << setw(33) << "THANKS FOR SHOPPING AT" << endl;
+    cout << setw(25) << "MY STORE" << endl;
+    cout << endl;
+    cout << "ASSOCIATE: " << name << endl;
+    cout << "STORE# 5" << endl;
+    cout << "EDINBURG, TX 78359" << endl;
+    cout << endl;
+    // reciept items 
+    cout << left << setw(26) << item1 << right <<"$" << setw (8) << price1 << endl;
+    cout << left << setw(26) << item2 << right << "$" << setw (8) << price2 << endl;
+    cout << left << setw(26) << item3 << right << "$" << setw (8) << price3 << endl;
+    cout << left << setw(26) << item4 << right << "$" << setw (8) << price4 << endl;
+    cout << left << setw(26) << item5 << right << "$" << setw (8) << price5 << endl;
+    // subtotal tax and total printed out
+    cout << left << setw(14) << "" << setw(12) << "SUBTOTAL" << right << "$" << setw (8) << Subtotal << endl;
+    cout << left << setw(14) << "" << setw(12) << "TAX" << right << "$" << setw (8) << Tax << endl;
+    cout << left << setw(14) << "" << setw(12) << "TOTAL" << right << "$" << setw (8) << Total << endl;
+    cout << setw(35)<< "*** CUSTOMER COPY ***" << endl;
+    return 0;
+}
